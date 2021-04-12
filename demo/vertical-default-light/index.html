@@ -975,6 +975,24 @@
   <!-- Custom js for this page-->
   <script src="../../js/dashboard.js"></script>
   <!-- End custom js for this page-->
+  <script>
+    // To set sidebar status
+    $(document).on('click','.navbar-toggler',function(){
+        if($('body').hasClass('sidebar-icon-only'))
+            localStorage.setItem('status', 'close');
+        else
+            localStorage.setItem('status', 'open');
+    })
+
+    // To get sidebar status
+    $(document).ready(function(){
+        var sidebarStatus = localStorage.getItem('status');
+        if(sidebarStatus == 'close')
+            $('body').addClass('sidebar-icon-only');
+        else
+            $('body').removeClass('sidebar-icon-only');
+    })
+</script>
 </body>
 
 

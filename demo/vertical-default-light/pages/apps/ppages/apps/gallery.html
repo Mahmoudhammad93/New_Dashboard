@@ -792,4 +792,21 @@ class=row><p
 class="text-center mx-auto">
 Credit/Debit Card (Stripe)</p></div><div
 class="row copyright "><p
-class="text-center mx-auto">Copyright © 2021 BootstrapDash - All right reserved</p></div></div></div></div></footer></body></html>
+class="text-center mx-auto">Copyright © 2021 BootstrapDash - All right reserved</p></div></div></div></div></footer><script>
+    // To set sidebar status
+    $(document).on('click','.navbar-toggler',function(){
+        if($('body').hasClass('sidebar-icon-only'))
+            localStorage.setItem('status', 'close');
+        else
+            localStorage.setItem('status', 'open');
+    })
+
+    // To get sidebar status
+    $(document).ready(function(){
+        var sidebarStatus = localStorage.getItem('status');
+        if(sidebarStatus == 'close')
+            $('body').addClass('sidebar-icon-only');
+        else
+            $('body').removeClass('sidebar-icon-only');
+    })
+</script></body></html>
